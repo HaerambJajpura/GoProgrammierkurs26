@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+)
 
 // ============================================================
 // GO PLAYGROUND
@@ -27,7 +30,7 @@ import "fmt"
 
 func main() {
 	// Ändert diese Zahl, um eine andere Aufgabe zu starten.
-	exercise := 1
+	exercise := 12
 
 	switch exercise {
 	case 1:
@@ -52,6 +55,8 @@ func main() {
 		aufgabe10()
 	case 11:
 		aufgabe11()
+	case 12:
+		mini_spiel()
 	default:
 		fmt.Println("Diese Aufgabe gibt es noch nicht.")
 	}
@@ -117,6 +122,23 @@ func aufgabe01() {
 	// und bringt sie in die richtige Reihenfolge.
 
 	fmt.Println("Aufgabe 1: Sortiert die Code-Schnipsel aus den Kommentaren!")
+
+	name := "Harry"
+	fmt.Println("Hallo", name+"!")
+	apples := 3
+	fmt.Println("Du hast", apples, "Äpfel.")
+	apples = apples + 2
+
+	fmt.Println("Nach dem 1. Einkauf hast du ", apples, "Äpfel.")
+
+	fmt.Println("Du hast wieder eingekauft und ...")
+	apples = apples + 5
+	fmt.Println("Nach dem 2. Einkauf hast du ", apples, "Äpfel.")
+
+	fmt.Println("Jetzt hast du ein Apfel gesessen.")
+	apples--
+	fmt.Println("Nach dem Essen hast du ", apples, "Äpfel")
+
 }
 
 // ============================================================
@@ -137,11 +159,14 @@ func aufgabe01() {
 // Fügt eine Ausgabe für x*y und x-y hinzu.
 
 func aufgabe02() {
-	x := 5
+	x := 10
 	y := 2
 
-	fmt.Println(x + y)
-	fmt.Println("x + y")
+	fmt.Println(x + y)   // prints the answer when x and y are added
+	fmt.Println("x + y") // prints the string "x + y"
+
+	fmt.Println("x*y = ", x*y)
+	fmt.Println("x-y = ", x-y)
 }
 
 // ============================================================
@@ -161,14 +186,19 @@ func aufgabe02() {
 // und gebt auch euren Wohn- oder Studienort aus.
 
 func aufgabe03() {
-	name := "Max"
-	alter := 18
+	name := "Harry"
+	alter := 19
 
 	fmt.Println("Hallo", name)
 	fmt.Println("Du bist", alter, "Jahre alt.")
 
 	// TODO: Alter im nächsten Jahr ausgeben
 	// TODO: Alter in 10 Jahren ausgeben
+
+	alter++
+
+	fmt.Println("Nach 1 Jahr bist du ", alter, " Jahre alt")
+	fmt.Println("Nach 10 Jahre bist du ", alter+9, " Jahre alt")
 }
 
 // ============================================================
@@ -196,9 +226,16 @@ func aufgabe03() {
 
 func aufgabe04() {
 	apples := 5
-	apples = apples + 2
+	apples = apples * 2
 
 	fmt.Println("Äpfel:", apples)
+
+	bananas := 10
+	bananas = bananas + 8
+	fmt.Println("Bananas: ", bananas)
+
+	gesamtzahl := apples + bananas
+	fmt.Println("Gesamtzahl aller Früchte: ", gesamtzahl)
 }
 
 // ============================================================
@@ -241,6 +278,23 @@ func aufgabe05() {
 	fmt.Println("Bug Hunt!")
 
 	// Kopiert hier jeweils EINEN kaputten Schnipsel hinein.
+
+	fmt.Println("Hallo Welt!")
+	fmt.Println("Hallo")
+
+	unbekannt := 0
+	fmt.Println(unbekannt) // oder auch "unbekannt"
+
+	x := 5
+	x = 10
+	fmt.Println(x)
+
+	fmt.Println("Hallo")
+	fmt.Println("Welt")
+
+	// Für mein Sitznachbar
+	// y:=10
+
 }
 
 // ============================================================
@@ -266,9 +320,8 @@ func aufgabe05() {
 
 func aufgabe06() {
 	x := 3
-	x = x + 2
-	x = x * 4
-	x = x - 5
+	x = x + 4
+	x = x * 6
 
 	fmt.Println("x =", x)
 }
@@ -300,10 +353,12 @@ func aufgabe06() {
 // Ihr könnt dafür nach "Go else if" suchen oder experimentieren.
 
 func aufgabe07() {
-	alter := 18
+	alter := 1
 
-	if alter >= 18 {
+	if alter >= 16 {
 		fmt.Println("Du bist volljährig.")
+	} else if alter < 16 {
+		fmt.Println("Noch keine 16 !")
 	} else {
 		fmt.Println("Du bist noch nicht volljährig.")
 	}
@@ -334,12 +389,14 @@ func aufgabe07() {
 // Könnt ihr auch prüfen, ob eine Zahl negativ ist?
 
 func aufgabe08() {
-	number := 7
+	number := 5
 
 	if number > 5 {
-		fmt.Println("Die Zahl ist groß!")
+		fmt.Println("Die Zahl ist großer als 5")
+	} else if number == 5 {
+		fmt.Println("genau fünf")
 	} else {
-		fmt.Println("Die Zahl ist klein oder gleich 5!")
+		fmt.Println("Die Zahl ist kleiner 5!")
 	}
 
 	// TODO: Genau 5 getrennt behandeln
@@ -367,8 +424,14 @@ func aufgabe08() {
 // ausgeben.
 
 func aufgabe09() {
-	for i := 0; i < 5; i++ {
+	for i := 10; i <= 50; i += 10 {
 		fmt.Println(i)
+	}
+
+	// oder
+
+	for i := 1; i <= 5; i++ {
+		fmt.Println(i * 10)
 	}
 }
 
@@ -406,6 +469,22 @@ func aufgabe10() {
 	// TODO: Baut hier euer Programm.
 
 	fmt.Println("Code-Lego: Baut euer eigenes Programm!")
+
+	name := "Harry"
+	fmt.Println("Hallo!")
+	fmt.Println("Ich heiße ", name)
+	alter := 19
+	fmt.Println("Ich bin ", alter, "Jahre alt")
+	fmt.Println("In 10 Jahren bin ich ", alter+10)
+
+	if alter < 18 {
+		fmt.Println("Alter kleiner als 18")
+	} else if alter > 18 {
+		fmt.Println("Alter großer als 18")
+	} else {
+		fmt.Println("alter gleich 18")
+	}
+
 }
 
 // ============================================================
@@ -456,5 +535,66 @@ func aufgabe10() {
 func aufgabe11() {
 	fmt.Println("Freie Mini-Challenge!")
 
+	name := "Harry"
+	alter_guess := 18
+	alter_richtig := 19
+
+	if alter_guess == alter_richtig {
+		fmt.Println("richtig!")
+		fmt.Println(name, " ist ", alter_guess, " Jahre alt")
+	} else {
+		fmt.Println("falsch!")
+		fmt.Println(name, " ist nicht ", alter_guess, "Jahre alt")
+		fmt.Println(name, " ist ", alter_richtig, " Jahre alt")
+	}
+
+	for i := 1; i <= alter_richtig; i++ {
+		for j := 0; j < i; j++ {
+			fmt.Print("*")
+		}
+		fmt.Println("")
+	}
+
 	// TODO: Euer eigenes Programm beginnt hier.
 }
+
+func mini_spiel() {
+	fmt.Println("Welcome in Mini-Spile")
+	fmt.Println("There is a random between 0 to 100 and you have to guess this number!")
+	fmt.Println("You have ONLY 10 tries")
+
+	tries := 10
+	//number := 70
+	number := rand.Intn(100)
+
+	had_guessed := false
+	for i := 0; i < tries; i++ {
+		fmt.Println("Tries Left : ", 10-i)
+		fmt.Println("Enter your Guess: ")
+		var user_guess int
+
+		fmt.Scan(&user_guess)
+		if user_guess == number {
+			fmt.Println("You have won!")
+			had_guessed = true
+			break
+		} else if user_guess > number {
+			fmt.Println("Your Guess is bigger than the correct number, try again!")
+		} else {
+			fmt.Println("Your Guess is smaller than the correct number, try again!")
+		}
+	}
+	if had_guessed == false {
+		fmt.Println("You lost!")
+		fmt.Println("The correct number was ", number)
+	}
+}
+
+//fmt.Println("Welcome in Mini-Spiel")
+//	fmt.Println("factorial!")
+//	number := 5
+//	factorial:=1
+//	for i:=number;i>=1;i--{
+//		factorial*=i
+//	}
+//	fmt.Println(factorial)
