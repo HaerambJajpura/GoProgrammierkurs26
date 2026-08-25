@@ -7,9 +7,9 @@ package typableitung
 
 func CourseData() (string, int, bool) {
     // TODO: Lege alle drei Variablen mit := an.
-    course := ""
-    participants := 0
-    active := false
+    course := "Go Grundlagen"
+    participants := 12
+    active := true
 
     return course, participants, active
 }

@@ -7,5 +7,5 @@ package zwei_zahlen_addieren
 
 func Add(a int, b int) int {
     // TODO: Gib die Summe zurück.
-    return 0
+    return a+b
 }

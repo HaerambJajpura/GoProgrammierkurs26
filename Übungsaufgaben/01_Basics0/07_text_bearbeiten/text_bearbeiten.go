@@ -9,6 +9,7 @@ import "strings"
 
 func ChangeCase(text string) (string, string) {
     // TODO: Erzeuge Groß- und Kleinschreibung.
-    _ = strings.ToUpper
-    return "", ""
+    upper := strings.ToUpper(text)
+    lower := strings.ToLower(text)
+    return upper, lower
 }

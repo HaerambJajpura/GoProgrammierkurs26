@@ -7,5 +7,5 @@ package hello_world
 
 func HelloWorld() string {
     // TODO: Gib "Hello, World!" zurück.
-    return ""
+    return "Hello, World!"
 }

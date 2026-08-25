@@ -7,5 +7,9 @@ package zahlen_vergleichen
 
 func IsGreater(a int, b int) bool {
     // TODO: Vergleiche a und b.
-    return false
+    if a>b {
+        return true
+    } else {
+        return false
+    }
 }

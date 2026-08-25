@@ -13,6 +13,8 @@ import (
 
 func BuildStatus(name string, number int) string {
     // TODO: Name bearbeiten, Zahl umwandeln und Status formatieren.
+    upper := strings.ToUpper(name)
+    result := fmt.Sprintf("%s - Aufgabe %d",upper,number)
     _, _, _ = fmt.Sprintf, strconv.Itoa, strings.ToUpper
-    return ""
+    return result
 }

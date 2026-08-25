@@ -7,5 +7,5 @@ package persoenliche_begruessung
 
 func Greeting(name string) string {
     // TODO: Erzeuge eine persönliche Begrüßung.
-    return ""
+    return "Hallo, "+name+"!"
 }

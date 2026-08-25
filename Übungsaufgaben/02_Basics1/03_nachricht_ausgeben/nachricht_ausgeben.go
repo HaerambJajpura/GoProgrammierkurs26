@@ -10,4 +10,5 @@ import "fmt"
 func PrintMessage(message string) {
     // TODO: Gib message aus.
     _ = fmt.Println
+    fmt.Println(message)
 }

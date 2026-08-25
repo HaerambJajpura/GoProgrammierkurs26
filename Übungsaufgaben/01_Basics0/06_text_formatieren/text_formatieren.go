@@ -9,6 +9,6 @@ import "fmt"
 
 func FormatCourse(course string, participants int) string {
     // TODO: Erzeuge den erwarteten Text mit fmt.Sprintf.
-    _ = fmt.Sprintf
-    return ""
+    result := fmt.Sprintf("%s hat %d Teilnehmer.",course,participants)
+    return result
 }

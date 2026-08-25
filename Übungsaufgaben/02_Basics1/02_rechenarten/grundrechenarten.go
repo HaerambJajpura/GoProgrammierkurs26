@@ -7,5 +7,5 @@ package grundrechenarten
 
 func BasicOperations(a int, b int) (int, int, int) {
     // TODO: Summe, Differenz und Produkt berechnen.
-    return 0, 0, 0
+    return a+b, a-b, a*b
 }

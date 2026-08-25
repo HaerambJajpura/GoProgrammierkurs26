@@ -1,4 +1,4 @@
-package persoenliche_begruessung
+ package persoenliche_begruessung
 
 import "testing"
 
