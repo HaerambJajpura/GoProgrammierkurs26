@@ -7,5 +7,9 @@ package temperatur_bewerten
 
 func TemperatureLabel(temp int) string {
     // TODO: Entscheide mit if/else zwischen "warm" und "kühl".
-    return ""
+    if temp>=25 {
+        return "warm"
+    } else {
+        return "kühl"
+    }
 }

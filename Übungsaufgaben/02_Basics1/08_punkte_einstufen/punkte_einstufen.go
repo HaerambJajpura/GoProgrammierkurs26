@@ -7,5 +7,13 @@ package punkte_einstufen
 
 func ClassifyPoints(points int) string {
     // TODO: Klassifiziere die Punkte.
-    return ""
+    if points>=90{
+        return "sehr gut"
+    } else if points>=75 {
+        return "gut"
+    } else if points>=50 {
+        return "bestanden"
+    } else {
+        return "nicht bestanden"
+    }
 }

@@ -7,5 +7,10 @@ package zutritt_pruefen
 
 func CanEnter(age int, hasID bool) bool {
     // TODO: Kombiniere Alter und Ausweisstatus.
+    if age>=18 && hasID==true {
+        return true
+    } else {
+        return false
+    }
     return false
 }
