@@ -33,7 +33,11 @@ package factorial
 func Factorial(n int) int {
 	// TODO:
 	// Implementiere Abbruchfall und rekursiven Fall.
-	return 0
+	if n <= 1 {
+		return 1
+	} else {
+		return n * Factorial(n-1)
+	}
 }
 
 // Experiment:

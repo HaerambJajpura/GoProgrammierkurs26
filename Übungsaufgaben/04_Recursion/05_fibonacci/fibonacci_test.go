@@ -19,6 +19,6 @@ func TestFib(t *testing.T) {
 
 func BenchmarkFib(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Fib(30)
+		Fib(35)
 	}
 }

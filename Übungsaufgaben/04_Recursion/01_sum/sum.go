@@ -34,6 +34,12 @@ func SumTo(n int) int {
 
 	// TODO 1:
 	// Implementiere zuerst den Abbruchfall.
+	if n==0 {
+		return 0
+	} else 
+	{
+		return n+SumTo(n-1)
+	}
 	//
 	// Frage:
 	// Was ist das Ergebnis von SumTo(0)?
@@ -45,7 +51,6 @@ func SumTo(n int) int {
 	//
 	//     SumTo(n) = n + SumTo(n - 1)
 
-	return 0
 }
 
 // Experiment:

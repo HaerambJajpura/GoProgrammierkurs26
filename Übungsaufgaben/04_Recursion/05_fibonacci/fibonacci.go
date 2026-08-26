@@ -31,7 +31,12 @@ package fibonacci
 func Fib(n int) int {
 	// TODO:
 	// Implementiere die Definition von oben direkt.
-	return 0
+	if n == 0 {
+		return 0
+	} else if n == 1 {
+		return 1
+	}
+	return Fib(n-1) + Fib(n-2)
 }
 
 // Experiment 1 – Laufzeit:

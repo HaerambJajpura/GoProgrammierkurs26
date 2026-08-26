@@ -31,15 +31,24 @@ func SumTree(node *Node) int {
 	// TODO 1:
 	// Ein nil-Pointer bedeutet: Hier existiert kein Node.
 	// Was sollte dann die Summe sein?
+	if node == nil {
+		return 0
+	}
 
 	// TODO 2:
 	// Beginne mit dem Wert des aktuellen Nodes.
+	sum := node.Value
 
 	// TODO 3:
 	// Gehe alle Children durch.
 	// Jedes Child ist selbst wieder ein Baum.
 
-	return 0
+	for _, child := range node.Children {
+		sum += SumTree(child)
+	}
+
+	return sum
+
 }
 
 // Experiment:
