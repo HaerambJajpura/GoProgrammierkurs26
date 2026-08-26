@@ -17,13 +17,19 @@ type Account struct {
 // Erhöhe die Balance der lokalen Kopie und gib diese Kopie zurück.
 func DepositCopy(account Account, amount int) Account {
 	// TODO
-	return Account{}
+	return Account{
+		Owner: account.Owner,
+		Balance: account.Balance+amount,
+	}
 }
 
 // RenameCopy soll analog nur die Kopie umbenennen und zurückgeben.
 func RenameCopy(account Account, newOwner string) Account {
 	// TODO
-	return Account{}
+	return Account{
+		Owner: newOwner,
+		Balance: account.Balance,
+	}
 }
 
 // Experiment:

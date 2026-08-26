@@ -16,6 +16,9 @@ type Temperature struct {
 // Ist t == nil, soll 0 und false zurückgegeben werden.
 func ReadTemperature(t *Temperature) (float64, bool) {
 	// TODO: Prüfe zuerst t == nil.
+	if t!= nil {
+		return t.Celsius,true
+	}
 	return 0, false
 }
 
@@ -23,6 +26,11 @@ func ReadTemperature(t *Temperature) (float64, bool) {
 // Andernfalls soll Celsius gesetzt und true zurückgegeben werden.
 func SetTemperature(t *Temperature, value float64) bool {
 	// TODO
+	if t!= nil {
+		t.Celsius=value
+		return true
+	}
+	
 	return false
 }
 

@@ -16,16 +16,20 @@ type Counter struct {
 // Die Methode soll eine veränderte KOPIE zurückgeben.
 func (c Counter) Added(amount int) Counter {
 	// TODO
-	return Counter{}
+	return Counter{
+		Value: c.Value+amount,
+	}
 }
 
 // Add verwendet absichtlich einen POINTER RECEIVER.
 // Die Methode soll den ORIGINALEN Counter verändern.
 func (c *Counter) Add(amount int) {
 	// TODO
+	c.Value=c.Value+amount
 }
 
 // Reset setzt den ORIGINALEN Counter auf 0.
 func (c *Counter) Reset() {
 	// TODO
+	c.Value=0
 }

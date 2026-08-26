@@ -18,16 +18,22 @@ func Birthday(student *Student) {
 	// TODO
 	// Du könntest schreiben: (*student).Age++
 	// Idiomatischer ist in Go aber einfach: student.Age++
+	student.Age++
 }
 
 // Rename soll den Namen des ORIGINALEN Studenten ändern.
 func Rename(student *Student, newName string) {
 	// TODO
+	student.Name=newName
 }
 
 // Older soll einen Pointer auf den älteren der beiden Studenten zurückgeben.
 // Bei gleichem Alter soll a zurückgegeben werden.
 func Older(a *Student, b *Student) *Student {
 	// TODO
-	return nil
+	if a.Age < b.Age {
+		return b
+	} else {
+		return a
+	}
 }

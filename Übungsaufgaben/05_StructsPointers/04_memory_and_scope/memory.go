@@ -1,5 +1,7 @@
 package memory
 
+import "unsafe"
+
 // Übung 4 – Speichergröße, Padding und Scope
 // Schwierigkeit: ★★★☆☆
 //
@@ -38,7 +40,12 @@ func GetSizes() SizeInfo {
 	//   unsafe.Sizeof(bool(false))
 	//   unsafe.Sizeof(int64(0))
 	//   unsafe.Sizeof(BadLayout{})
-	return SizeInfo{}
+	return SizeInfo{
+		BoolSize: unsafe.Sizeof(bool(false)),
+		Int64Size: unsafe.Sizeof(int64(10)),
+		BadLayoutSize: unsafe.Sizeof(BadLayout{Enabled: true,Count: 10,Visible: true}),
+		BetterLayoutSize: unsafe.Sizeof(BetterLayout{Count: 10,Enabled: true,Visible: true}),
+	}
 }
 
 // MakeLabel demonstriert lokalen Scope.
@@ -46,7 +53,7 @@ func MakeLabel(name string) string {
 	prefix := "Student: " // prefix existiert nur innerhalb dieser Funktion.
 
 	// TODO: Gib prefix + name zurück.
-	return prefix // Starterwert: kompiliert, ist aber noch nicht korrekt.
+	return prefix + name// Starterwert: kompiliert, ist aber noch nicht korrekt.
 }
 
 // Experiment 1:
