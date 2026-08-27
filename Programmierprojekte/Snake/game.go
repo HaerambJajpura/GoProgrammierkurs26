@@ -110,6 +110,13 @@ func (s Snake) Contains(point Point) bool {
 //	DX-Werte und ihre DY-Werte jeweils zu 0 addieren.
 func ChangeDirection(snake *Snake, newDirection Direction) {
 	// TODO: Implementiere diese Funktion.
+	if snake.Direction.DX+newDirection.DX == 0 && snake.Direction.DY+newDirection.DY == 0 {
+
+	} else {
+		snake.Direction.DX = newDirection.DX
+		snake.Direction.DY = newDirection.DY
+	}
+
 }
 
 // ============================================================
@@ -136,7 +143,20 @@ func ChangeDirection(snake *Snake, newDirection Direction) {
 //  2. Verschiebe die Körperteile von hinten nach vorne.
 //  3. Schreibe den neuen Kopf nach Body[0].
 func MoveSnake(snake *Snake) {
+
 	// TODO: Implementiere diese Funktion.
+
+	newHead := Point{
+		X: snake.Body[0].X + snake.Direction.DX,
+		Y: snake.Body[0].Y + snake.Direction.DY,
+	}
+
+	for i := len(snake.Body) - 1; i > 0; i-- {
+		snake.Body[i] = snake.Body[i-1]
+	}
+
+	snake.Body[0] = newHead
+
 }
 
 // ============================================================
@@ -152,7 +172,14 @@ func MoveSnake(snake *Snake) {
 // befindet.
 func HasWallCollision(snake Snake, width, height int) bool {
 	// TODO: Implementiere diese Funktion.
-	return false
+
+	head := snake.Head()
+
+	if head.X < 0 || head.X >= width-1 || head.Y < 0 || head.Y >= height-1 {
+		return true
+	} else {
+		return false
+	}
 }
 
 // ============================================================
@@ -168,6 +195,14 @@ func HasWallCollision(snake Snake, width, height int) bool {
 //	verglichen werden.
 func HasSelfCollision(snake Snake) bool {
 	// TODO: Implementiere diese Funktion.
+
+	head := snake.Head()
+
+	for i := 1; i < len(snake.Body); i++ {
+		if snake.Body[i] == head {
+			return true
+		}
+	}
 	return false
 }
 
@@ -179,7 +214,14 @@ func HasSelfCollision(snake Snake) bool {
 // Position liegt wie das Futter.
 func HasEatenFood(snake Snake, food Point) bool {
 	// TODO: Implementiere diese Funktion.
-	return false
+	head := snake.Head()
+
+	if head == food {
+		return true
+	} else {
+		return false
+	}
+
 }
 
 // ============================================================
@@ -197,4 +239,6 @@ func HasEatenFood(snake Snake, food Point) bool {
 //	append(...) fügt einem Slice ein neues Element hinzu.
 func GrowSnake(snake *Snake) {
 	// TODO: Implementiere diese Funktion.
+	end_position := snake.Body[len(snake.Body)-1]
+	snake.Body = append(snake.Body, end_position)
 }

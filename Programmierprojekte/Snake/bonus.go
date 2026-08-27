@@ -13,7 +13,9 @@ package main
 // von der Schlange belegt sind.
 func CountFreeCells(snake Snake, width, height int) int {
 	// BONUS TODO
-	return 0
+	total_blocks := width* height
+
+	return total_blocks - len(snake.Body)
 }
 
 // WrapPoint soll eine Position auf die gegenüberliegende Seite des
